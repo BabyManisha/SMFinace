@@ -1,0 +1,17 @@
+{
+  "name": "sivamani",
+  "version": "0.0.1",
+  "description": "Finace App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Baby Manisha Sunkara <babymaneesha@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.1"
+  }
+}

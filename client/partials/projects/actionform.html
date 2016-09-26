@@ -1,0 +1,255 @@
+  
+  <!--Navigation bar form-->
+<nav class="navbar navbar-default" ng-init="FBLoginStatus()">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">SM Finance</a>
+    </div>      
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li ng-class="{active: isActive('/home')}"><a href="/home">Home</a></li>-->
+        <!--<li class="active"><a href="/Home">Home <span class="sr-only">(current)</span></a></li>-->
+        <!--<li ng-class="{active: isActive('/projects/actionform')}"><a href="/projects/actionform">Project</a></li>-->
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-cog" aria-hidden="true"></i>
+           <ul class="dropdown-menu" id="d-settings">
+            <li><a href="#">Export</a></li>
+            <li class="divider"></li>
+            <li>
+            <span for="currency">Main Currency:</span>
+              <select id="currency">
+                <option>no currency</option>
+                <option>INR</option>
+                <option>USD</option>
+                <option>EUR</option>
+              </select>
+            </li>
+            
+            <li> <span>Money Format:</span>
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-default">
+                    <input type="checkbox" autocomplete="off"> 1,000.99
+                  </label>
+                  <label class="btn btn-default">
+                    <input type="checkbox" autocomplete="off"> 1.000,99
+                  </label>
+                </div>
+            </li>
+            
+            <li> <span>Add form type:</span>
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-default">
+                    <input type="checkbox" autocomplete="off"> multi-field
+                  </label>
+                  <label class="btn btn-default">
+                    <input type="checkbox" autocomplete="off"> sinfle field
+                  </label>
+                </div>
+            </li>
+            
+            <li> <span>First day in week:</span>
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-default">
+                    <input type="checkbox" autocomplete="off"> Monday
+                  </label>
+                  <label class="btn btn-default">
+                    <input type="checkbox" autocomplete="off"> Sunday
+                  </label>
+                </div>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" 
+                data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <div class="row">
+                    <div class="col-md-1">
+                        <a href="https://twitter.com/ManshuMahadev" target="newtab">
+                           <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="https://www.facebook.com/maneesha.sunkara.Smily" target="newtab">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="#">Feedback</a>
+                    </div>
+                </div>
+            </li>
+          </ul>
+        </li>
+        
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transactions <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><i class="fa fa-calendar">&nbsp;</i> Calender</a></li>
+            <li><a href="#"><i class="fa fa-bar-chart"></i>&nbsp; Charts</a></li>
+            <ul class="charts-submenus" >
+              <li class="dropdown-header">Account History</li>
+              <li class="dropdown-header">Tag History</li>
+              <li class="dropdown-header">Tags Percentages</li>
+            </ul>
+            <li><a href="#"><i class="fa fa-download"></i>&nbsp; Import</a></li>
+            <li><a href="#"><i class="fa fa-search"></i>&nbsp; Search</a></li>
+          </ul>
+        </li>
+        <!--<li ng-class="{active: isActive('/projects/actionform')}"><a href="/projects/actionform">Project</a></li>-->
+        <!--<li><button class="btn btn-primary" ng-click="FBLogin()">Login</button></li>-->
+        <li>
+        
+        <form class="nav-form">
+          <!--<input type="text" class="form-control" id="type" placeholder="Type" ng-model="form.type" />-->
+          
+          
+          <select class="selectpicker form-control" id="type" ng-model="form.type">
+            <option selected="selected">Income</option>
+            <option>Expense</option>
+            <option>Transfer</option>
+            <option>Balance</option>
+          </select>
+
+          
+          <input type="number" class="form-control" id="amount" placeholder="Amount" ng-model="form.amount" required />
+          <input type="text" class="form-control" id="tag" placeholder="Tag" ng-model="form.tag" />
+          <input type="text" class="form-control" id="type" placeholder="Description" ng-model="form.discript" />
+          <input type="text" class="form-control" id="account" placeholder="Account" ng-model="form.account" required />
+          <input type="date" class="form-control" id="date" placeholder="Date" ng-model="form.date" />
+          <button type="submit" class="btn btn-success" ng-click="addToDatabase()">Add</button>
+        </form>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><button class="btn btn-primary nav-button login-btn" ng-click="FBLogin()">Login</button></li>
+        <li><button class="btn btn-primary nav-button logout-btn" ng-click="FBLogout()">Logout</button></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row" id="sm">
+        
+        <div class="col-xs-6 col-sm-3">
+            <button class="btn btn-primary">Add Account</button>
+            <table class="table table-hover">
+                <tr ng-repeat="action in actions | unique: 'account'">
+                    <td>{{action.account}}</td>
+                </tr>
+            </table>
+        </div>
+        
+        
+        <div class="col-md-6 col-sm-4">
+            <div><span>Transactions</span></div>
+            <div id="customer-table">
+                <table class="table table-hover">
+                    <thead>
+                        <!--<th>UserName</th>-->
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Tag</th>
+                        <th>Discription</th>
+                        <th>Account</th>
+                        <th>Date</th>
+                        <!--<th>Active</th>-->
+                        <th><i class="fa fa-trash" ng-click="deleteAll()"></i>
+                        </th>
+                    </thead>
+                    <tr ng-repeat="action in actions | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize" ng-click="editable(action)" 
+                      ng-class="action.type == 'Income' ? 'success' : action.type == 'Expense' ? 'danger' : action.type == 'Transfer' ? 'info' : 'active'">
+                        <!--<td>-->
+                          <!--<input type="text" class="form-control" id="type" placeholder="Type" ng-model="form.username" -->
+                          <!--  ng-if="action.editable"/> -->
+                          <!--{{action.username}}</td>-->
+                        <td>
+                          <!--<input type="text" class="form-control" id="type" placeholder="Type" ng-model="form.type" -->
+                          <!-- value="form.type" ng-if="action.editable"/>-->
+                           {{action.type}}
+                        </td>
+                        <td>
+                           <!--<input type="text" class="form-control" id="type" placeholder="Type" ng-model="form.amount" -->
+                           <!--value="form.amount" ng-if="action.editable"/>-->
+                          {{action.amount | currency}}</td>
+                        <td>
+                          <input type="text" class="form-control" id="type" placeholder="Type" ng-model="form.tag" 
+                           value="form.tag" ng-if="action.editable"/>
+                          {{action.tag}}</td>
+                        <td>
+                          <!--<input type="text" class="form-control" id="type" placeholder="Type" ng-model="form.discript" -->
+                          <!-- value="form.discript" ng-if="action.editable"/>-->
+                          {{action.discript}}</td>
+                        <td>
+                          <!--<input type="text" class="form-control" id="type" placeholder="Type" ng-model="form.account" -->
+                          <!-- value="form.account" ng-if="action.editable"/>-->
+                          {{action.account}}</td>
+                        <td>
+                          <!--<input type="text" class="form-control" id="type" placeholder="Type" ng-model="form.date" -->
+                          <!-- value="form.date" ng-if="action.editable"/>-->
+                          {{action.date | date: 'dd-MM-yyyy'}}</td>
+                        <!--<td>{{action.active}}</td>-->
+                        <td><i class="fa fa-trash" ng-click="delete((currentPage - 1) * pageSize + $index)"></i>
+                        </td>
+                    </tr>
+                </table>
+                
+                
+                    <script type="text/ng-template" id="display">
+                      <td>{{contact.name}}</td>
+                      <td>{{contact.age}}</td>
+                      <td>
+                          <button ng-click="editContact(contact)">Edit</button>
+                      </td>
+                  </script>
+                  <script type="text/ng-template" id="edit">
+                      <td><input type="text" ng-model="model.selected.name" /></td>
+                      <td><input type="text" ng-model="model.selected.age" /></td>
+                      <td>
+                          <button ng-click="saveContact($index)">Save</button>
+                          <button ng-click="reset()">Cancel</button>
+                      </td>
+                  </script>
+                
+                
+            </div>
+            <pagination total-items="actions.length" ng-model="currentPage" items-per-page="pageSize"></pagination>
+        </div>
+        
+        <div class="col-xs-6 col-sm-3">
+          <div class="pull-right">
+              <button class="btn btn-primary">Add Tag</button>
+              <table class="table table-hover">
+                  <tr ng-repeat="action in actions | unique: 'tag'">
+                      <td>{{action.tag}}</td>
+                  </tr>
+              </table>
+            </div>
+        </div>
+        
+    </div>
+</<div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-md-2 col-md-offset-3">
+        <a href="https://twitter.com/ManshuMahadev" target="newtab" class="btn btn-info btn-block">
+            <i class="fa fa-twitter fa-2x"></i>
+        </a>
+    </div>
+    <div class="col-md-2">
+        <a href="https://www.facebook.com/maneesha.sunkara.Smily" target="newtab" class="btn btn-primary btn-block">
+            <i class="fa fa-facebook fa-2x"></i>
+        </a>
+    </div>
+    <div class="col-md-2">
+        <a href="https://www.youtube.com/user/babymaneesha" target="newtab" class="btn btn-danger btn-block">
+            <i class="fa fa-youtube fa-2x"></i>
+        </a>
+    </div>
+</div>

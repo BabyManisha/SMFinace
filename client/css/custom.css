@@ -1,0 +1,74 @@
+tr.ng-enter{
+    animation: fadeIn 1s;
+}
+
+tr.ng-leave{
+    animation: fadeOut 1s;
+}
+
+#customer-table{
+    height: 400px;
+}
+
+.user-window{
+    border-left: 2px solid black;
+    height: 300px;
+}
+.username{
+    color: red;
+    font-weight: bold;
+}
+
+.chat-window{
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.nav-form{
+    display: flex;
+    margin: 5px;
+}
+
+.nav-form input{
+    width: 120px;
+    margin: 2px;
+}
+
+.nav-form button{
+    width: 110px;
+    margin: 2px;
+}
+
+.navbar-right{
+    padding-top: 6px;
+}
+
+.col-sm-2{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#currency select{
+    margin: 5px;
+}
+
+#d-settings{
+    width: 340px;
+}
+
+#d-settings li{
+    margin: 10px;
+}
+
+.table-hover td{
+    cursor: pointer;
+}
+
+.selectpicker{
+    width: 110px;
+}
