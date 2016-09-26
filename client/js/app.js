@@ -7,6 +7,7 @@ var myApp = angular.module('myApp', [
     config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 
         //typical routes... when someone navigates to a given directory, load the partial, and use the controller
+        //testing navigation....
         $routeProvider.when('/home', {templateUrl: '/partials/home.html', controller: 'homeController'});
         $routeProvider.when('/projects', {templateUrl: '/partials/projects.html', controller: 'projectsController'});
         $routeProvider.when('/projects/actionform', {templateUrl: '/partials/projects/actionform.html', controller: 'actionFormController'});

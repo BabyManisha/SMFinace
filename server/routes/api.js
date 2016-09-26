@@ -13,8 +13,6 @@ module.exports = function (router) {
         action.date = ((req.body.date).toString()).substring(0,10);
         action.active = "true";
         
-        //action.username = "SivaMani";
-        
         action.save(function(err, data){
             if(err)
                 throw err;

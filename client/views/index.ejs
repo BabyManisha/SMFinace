@@ -1,18 +1,18 @@
 
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html lang="en" ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="SMFinace">
+    <meta name="author" content="BabyManishaSUnkara">
     
     <!--Fixes routing errors when refreshing some routes ie. projects/actionform.html-->
      <base href="/" /> 
 
-    <title>Navbar Template for Bootstrap</title>
+    <title>SMFinace</title>
 
     <!-- Bootstrap core CSS -->
     <link href="libs/bootstrap/bootstrap.css" rel="stylesheet">
@@ -24,7 +24,6 @@
   <body>
     
       <script>
-      var sm = "SivaMani";
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '192205941211322',
@@ -41,72 +40,7 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
   </script>
-  
-  
-  <!--
-    <nav class="navbar navbar-default" ng-controller="navController">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">SM Finance</a>
-        </div>      
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-cog" aria-hidden="true"></i>
-               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-            
-            
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transactions <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-calendar">&nbsp;</i> Calender</a></li>
-                <li><a href="#"><i class="fa fa-bar-chart"></i>&nbsp; Charts</a></li>
-                <ul class="charts-submenus" >
-                  <li class="dropdown-header">Account History</li>
-                  <li class="dropdown-header">Tag History</li>
-                  <li class="dropdown-header">Tags Percentages</li>
-                </ul>
-                <li><a href="#"><i class="fa fa-download"></i>&nbsp; Import</a></li>
-                <li><a href="#"><i class="fa fa-search"></i>&nbsp; Search</a></li>
-              </ul>
-            </li>
-            <li ng-class="{active: isActive('/projects/actionform')}"><a href="/projects/actionform">Project</a></li>
-            <li>
-            
-            <form class="nav-form">
-              <input type="text" class="form-control" id="type" placeholder="Type" ng-model="form.type">
-              <input type="text" class="form-control" id="amount" placeholder="Amount" ng-model="form.amount">
-              <input type="text" class="form-control" id="tag" placeholder="Tag" ng-model="form.tag">
-              <input type="text" class="form-control" id="type" placeholder="Description" ng-model="form.discript">
-              <input type="text" class="form-control" id="account" placeholder="Account" ng-model="form.account">
-              <input type="text" class="form-control" id="date" placeholder="Date" ng-model="form.date">
-              <input type="text" class="form-control" id="active" placeholder="Active" ng-model="form.active">
-              <button type="submit" class="btn btn-success" ng-click="addToDatabase()">Add</button>
-            </form>
-            
-            
-            
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><button class="btn btn-primary nav-button" ng-click="FBLogin()">Login</button></li>
-          </ul>
-        </div>
-      </div>
-    </
-      <!-- Main component for a primary marketing message or call to action -->
-      
-      
+      <!-- Main component -->
       <div id="fb-root"></div>
       <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -119,8 +53,6 @@
       <div>
         <div ng-view></div>
       </div>
-
-    </div> <!-- /container -->
     
     
     <!--Socket IO-->
