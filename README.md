@@ -1,2 +1,0 @@
-# SMFinace
-SMFinace
